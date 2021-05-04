@@ -536,6 +536,7 @@ let api = function Binance( options = {} ) {
                 url: baseURL + url,
                 method: flags.method,
                 timeout: Binance.options.recvWindow,
+                localAddress: Binance.options.localAddress,
                 followAllRedirects: true
             };
             if ( flags.type === 'SIGNED' || flags.type === 'TRADE' || flags.type === 'USER_DATA' ) {
