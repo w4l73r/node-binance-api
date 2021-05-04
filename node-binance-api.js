@@ -536,6 +536,7 @@ let api = function Binance( options = {} ) {
                 url: baseURL + url,
                 method: flags.method,
                 timeout: Binance.options.recvWindow,
+                family: Binance.options.family,
                 localAddress: Binance.options.localAddress,
                 followAllRedirects: true
             };
@@ -3167,6 +3168,8 @@ let api = function Binance( options = {} ) {
         avgPrice: function ( symbol, callback = false ) {
             let opt = {
                 url: base + 'v3/avgPrice?symbol=' + symbol,
+                family: Binance.options.family,
+                localAddress: Binance.options.localAddress,
                 timeout: Binance.options.recvWindow
             };
             if ( !callback ) {
@@ -3201,6 +3204,8 @@ let api = function Binance( options = {} ) {
 
             let opt = {
                 url: base + 'v3/ticker/price' + params,
+                family: Binance.options.family,
+                localAddress: Binance.options.localAddress,                
                 timeout: Binance.options.recvWindow
             };
             if ( !callback ) {
@@ -3230,6 +3235,8 @@ let api = function Binance( options = {} ) {
             if ( typeof symbol === 'function' ) callback = symbol; // backwards compatibility
             let opt = {
                 url: base + 'v3/ticker/bookTicker' + params,
+                family: Binance.options.family,
+                localAddress: Binance.options.localAddress,
                 timeout: Binance.options.recvWindow
             };
             if ( !callback ) {
